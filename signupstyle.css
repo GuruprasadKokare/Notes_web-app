@@ -219,3 +219,8 @@ p a:hover{
         text-align: center;
     }
 }
+
+form i {
+    margin-left: -30px;
+    cursor: pointer;
+}
