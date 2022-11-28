@@ -1,3 +1,5 @@
+// password Visiability
+
 const togglePassword = document.querySelector("#togglePassword");
         const password = document.querySelector("#password");
 
@@ -15,3 +17,17 @@ const togglePassword = document.querySelector("#togglePassword");
         form.addEventListener('submit', function (e) {
             e.preventDefault();
         });
+
+
+// password visibilty
+
+//form validation
+function validate() {
+
+    var name = document.forms.signup_form.name.value;
+    var email = document.forms.signup_form.mail.value;
+    var pass = document.forms.signup_form.password.value;
+
+    
+    
+}

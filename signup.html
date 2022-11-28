@@ -26,11 +26,13 @@
             <h2 class="wel">Welcome!</h2>
             <p class="cret_ac">Create Account</p>
 
-            <form action="" class="form-box" method="post">
+            <form action="" class="form-box" method="post" onsubmit="return validate" name="signup_form">
                 <div class="form-items">
-                <input type="text" class="input-box" placeholder="Name"/>
-                <input type="email" class="input-box" placeholder="Email"/>
-                <input type="password" class="input-box" placeholder="Password" id="password" name="password">
+                <input type="text" class="input-box" name="name" placeholder="Name" required/>
+                <input type="email" class="input-box" name="mail" placeholder="Email" required/>
+                <input type="password" class="input-box" id="password" name="password" placeholder="Password" 
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least 1 number and 1 uppercase and lowercase letter, and at least 6 or more characters"
+                />
                 <i class="bi bi-eye-slash" id="togglePassword"></i>
 
                 <button type="submit" class="butn">create account</button>
