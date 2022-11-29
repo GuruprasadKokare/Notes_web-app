@@ -26,8 +26,5 @@ function validate() {
 
     var name = document.forms.signup_form.name.value;
     var email = document.forms.signup_form.mail.value;
-    var pass = document.forms.signup_form.password.value;
-
-    
-    
+    var pass = document.forms.signup_form.password.value;   
 }
