@@ -19,8 +19,8 @@
 /* Rectangle 1 */
 .ext-box {
     /* position: relative; */
-    width: 70%;
-    height: 600px;
+    width: 60%;
+    height: 550px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 3.5%;
@@ -47,7 +47,7 @@
     font-style: normal;
     font-weight: 700;
     /* font-size: 50px; */
-    font-size: 313%;
+    font-size: 35px;
     line-height: 60px;
 
     color: #484849;
@@ -66,7 +66,7 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 30px;
     line-height: 52px;
 
     color: #972DD9;
@@ -79,7 +79,7 @@
     /* width: 380px;
     height: 47px; */
 
-    width: 86%;
+    width: 80%;
     padding: 2.5%;
     background: rgba(255, 255, 255, 0.91);
     /* border: 0.02px solid #000000; */
@@ -87,7 +87,7 @@
     outline: none;
     border-radius: 5px;
     margin-bottom: 3%;
-    padding-left: 3%;
+    padding-left: 5%;
     margin-top: 2%;    
     font-size: 15px;
 
@@ -114,7 +114,7 @@
 
 .butn {
     /* position: absolute; */
-    width: 86%;
+    width: 80%;
     padding:2.5%;
     border: none;
     padding-left: auto;
@@ -150,14 +150,13 @@ button p {
 .txt-below {
     width: 86%;
     padding-right: 11%;
-    padding-left: 14%;
     height: 50px;
     padding: 1%;
-    padding-left: 15%;
+    margin-left: 12%;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 13px;
     line-height: 26px;
 
     color: #484849;
@@ -207,16 +206,25 @@ p a:hover{
     }
     .butn{
         min-height: 2.5%;
+        margin-left: 10px;
     }
 
     .txt-below{
         padding-left: 0;
-        margin-left: 10%;
+        margin-left: 70px;
         padding-right: 13%;
     }
 
     .form-box{
         text-align: center;
+    }
+
+    .wel{
+        margin-left: 35px;
+    }
+
+    .cret_ac{
+        margin-left: 35px;
     }
 }
 
