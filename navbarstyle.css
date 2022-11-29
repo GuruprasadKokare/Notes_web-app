@@ -57,3 +57,9 @@ div p{
     display: inline;
     color: #972DD9;
 }
+
+@media (max-width:992px) {
+    .box-2{
+        padding-top: 4%;
+    }
+}
