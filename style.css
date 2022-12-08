@@ -6,7 +6,135 @@
 
 }
 
-
 .bord{
     border: 1px solid black;
+}
+
+.search{
+    width: 65%;
+    padding: 5px 42px 5px 15px;
+    border: 0.2px solid grey;
+    border-radius: 5px;
+    margin-left: 15%;
+    font-size: 19px;
+}
+
+.search:focus{
+    outline: none;
+}
+
+.search-btn{
+    background: none;
+    border: none;
+    font-size: 19px;
+    margin-left: -42px;
+    margin-top: 5px;
+    color: #484849;
+}
+.search-btn:hover{
+    color: #972DD9;
+}
+
+.addnote{
+    border: none;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    font-size: 25px;
+    color: #fff;
+    background: #972DD9;
+    margin-right: -50px;
+    padding-left: auto;
+    padding-right: auto;
+    
+
+}
+
+
+/*-------- Card Section ----------*/
+.card {
+    border: none;
+    max-height: 310px;
+    min-height: 310px;
+    width: 360px;
+    padding: 20px 15px 0 15px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    
+}
+  
+.cards {
+    max-width: 100%;
+    margin: 3% 7%;
+    display: grid;
+    grid-gap: 1rem;
+  }
+  
+  /* Screen larger than 600px? 2 column */
+  @media (min-width: 600px) {
+    .cards { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+  }
+  
+  /* Screen larger than 900px? 3 columns */
+  @media (min-width: 900px) {
+    .cards { 
+        grid-template-columns: repeat(3, 1fr); 
+    }
+  }
+
+.card h3{
+    color: #484849;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.card-data{
+    font-size: 15px;
+    text-align: justify;
+    margin-top: 10px;
+    color: #7d7d7d;
+    overflow:hidden;
+    max-height: 185px;
+    min-height: 185px;
+    margin-bottom: 0px;
+}
+
+.card-date{
+    font-size: 15px;
+    /* font-weight: bold; */
+    color: #616161;
+    padding: 20px 0px;
+}
+
+.raw {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.search-bar{
+    margin-top: 2.3%;
+    min-height: 45px;
+}
+
+@media (max-width: 992px) {
+
+    .search-bar{
+        margin-top: 5%;
+    }
+
+    .search{
+        width: 80%;
+    }
+}
+
+.search-box{
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
