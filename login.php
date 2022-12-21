@@ -1,3 +1,28 @@
+<?php
+    include 'config.php';
+
+    if(isset($_POST['submit'])){
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $result = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
+        $row = mysqli_fetch_assoc($result);
+
+        if(mysqli_num_rows($result) > 0){
+            if($password == $row["password"]){
+                $_SESSION["login"] = true;
+                $_SESSION["id"] = $row["id"];
+                header("Location: index.php");
+            }
+            else{
+                echo "<script> alert('Wrong Password!'); </script>";
+            }
+        } else{
+            echo "<script> alert('User Not Registered'); </script>";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,18 +50,18 @@
             <h2 class="wel">Welcome Back!</h2>
             <p class="cret_ac">Login</p>
 
-            <form action="" class="form-box">
+            <form action="" method="post" class="form-box">
                 <div class="form-items">
                 
-                <input type="email" class="input-box" placeholder="Email" required/>
-                <input type="password" class="input-box" placeholder="Password" required/>
+                <input type="email" class="input-box" name="email" id="email" placeholder="Email" required values=""/>
+                <input type="password" class="input-box" name="password" id="password" placeholder="Password" required values=""/>
 
-                <button type="submit" class="butn">log in</button>
+                <button type="submit" name="submit" class="butn">Log in</button>
 
                 
             </div>
             </form>
-            <p class="txt-below ">New User? <a href="./signup.html"> Register Now </a></p>
+            <p class="txt-below ">New User? <a href="./signup.php"> Register Now </a></p>
         </div>
     </div>
 
