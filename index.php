@@ -32,7 +32,7 @@
         <!-- Navbar -->
         <nav class="nav_bar  raw">
             <div class="col-3 box-1 ">
-                <a href="index.html" class="logo">Notes<p>.</p></a>
+                <a href="index.php" class="logo">Notes<p>.</p></a>
             </div>
 
             <div class="col-9 box-2 " style="font-size: 18px;">
@@ -95,8 +95,9 @@
         <!-- Notes card -->
         <div class="cards">
             <?php
-                    $sql_query = "SELECT * FROM notes";
-                    $result = $conn->query($sql_query);
+                        $user = $row["email"];
+                        $sql_query = "SELECT * FROM notes WHERE user = '$user'";
+                        $result = $conn->query($sql_query);
             ?>
                 <?php
                     while ($row1 = $result->fetch_array()){ ?>
@@ -107,6 +108,7 @@
                         </div>
                 <?php
                     } 
+    
                 ?>
         </div> 
         
