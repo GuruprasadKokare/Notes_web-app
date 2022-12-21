@@ -213,6 +213,10 @@
     color: gold;
 }
 
+.title-modal{
+    font-size: 190%;
+    font-weight: 900;
+}
 
 .body-modal{
     padding-left: 7px;
@@ -259,8 +263,4 @@
     max-height: 570px;
 }
 
-.title-modal{
-    font-size: 190%;
-    padding-left: 7px;
-}
 /* IF gurus code doesn't accepted delete above css */

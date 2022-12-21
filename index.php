@@ -102,9 +102,9 @@
                 <?php
                     while ($row1 = $result->fetch_array()){ ?>
                         <div class="card" data-bs-toggle="modal" data-bs-target="#card-modal">
-                            <h3><?php echo $row1['title']?></h2>
+                            <h3 id="title"><?php echo $row1['title']?></h2>
                             <i class="fa-regular fa-star fav"></i>
-                            <p class="card-data"><?php echo $row1['description']?></p>
+                            <p class="card-data" id="card-data" ><?php echo $row1['description']?></p>
                             <p class="card-date"><?php echo $row1['date']?></p>
                             <i class="fa-solid fa-pen-to-square edit"></i>
                             <i class="fa-solid fa-trash delete"></i>
@@ -121,19 +121,14 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header" style="border: none;">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <h1 class="modal-title title-modal" id="modal-title"> </h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body body-modal">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui soluta suscipit quaerat quam corrupti? Distinctio iusto, debitis repudiandae accusantium itaque doloremque voluptas dicta nisi. Saepe dolor reiciendis at cumque ratione.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam delectus laboriosam odit adipisci mollitia, commodi, dignissimos optio eaque neque incidunt tempore dolor autem dicta nesciunt nisi vero numquam. Eligendi, numquam.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, soluta minus. Eum, est dolores sapiente eos velit, reprehenderit molestiae vitae, exercitationem illum deleniti inventore sit enim iusto quae quod impedit.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui soluta suscipit quaerat quam corrupti? Distinctio iusto, debitis repudiandae accusantium itaque doloremque voluptas dicta nisi. Saepe dolor reiciendis at cumque ratione.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam delectus laboriosam odit adipisci mollitia, commodi, dignissimos optio eaque neque incidunt tempore dolor autem dicta nesciunt nisi vero numquam. Eligendi, numquam.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, soluta minus. Eum, est dolores sapiente eos velit, reprehenderit molestiae vitae, exercitationem illum deleniti inventore sit enim iusto quae quod impedit.
+        <div class="modal-body body-modal" id="data-details">
+
         </div>
         <div class="modal-footer" style="border: none;">
-          
+          <p id="date"></p>
         </div>
       </div>
     </div>
@@ -159,6 +154,17 @@
     </div>
   </div>  -->
   <!-- Card modal by guru -->
+
+  <script>
+    let note_data = document.getElementById("card-data").innerHTML;
+    document.getElementById("data-details").innerHTML = note_data;
+
+    let title = document.getElementById("title").innerHTML;
+    document.getElementById("modal-title").innerHTML = title;
+
+    let date = document.getElementById("card-date").innerHTML;
+    document.getElementById("date").innerHTML = date;
+    </script>
 
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
