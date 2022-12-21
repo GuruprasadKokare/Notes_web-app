@@ -101,10 +101,13 @@
             ?>
                 <?php
                     while ($row1 = $result->fetch_array()){ ?>
-                        <div class="card" >
+                        <div class="card" data-bs-toggle="modal" data-bs-target="#card-modal">
                             <h3><?php echo $row1['title']?></h2>
+                            <i class="fa-regular fa-star fav"></i>
                             <p class="card-data"><?php echo $row1['description']?></p>
                             <p class="card-date"><?php echo $row1['date']?></p>
+                            <i class="fa-solid fa-pen-to-square edit"></i>
+                            <i class="fa-solid fa-trash delete"></i>
                         </div>
                 <?php
                     } 
@@ -112,6 +115,51 @@
                 ?>
         </div> 
         
+
+          <!-- Card modal bootstrap default -->
+  <div class="modal fade" id="card-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="border: none;">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body body-modal">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui soluta suscipit quaerat quam corrupti? Distinctio iusto, debitis repudiandae accusantium itaque doloremque voluptas dicta nisi. Saepe dolor reiciendis at cumque ratione.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam delectus laboriosam odit adipisci mollitia, commodi, dignissimos optio eaque neque incidunt tempore dolor autem dicta nesciunt nisi vero numquam. Eligendi, numquam.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, soluta minus. Eum, est dolores sapiente eos velit, reprehenderit molestiae vitae, exercitationem illum deleniti inventore sit enim iusto quae quod impedit.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui soluta suscipit quaerat quam corrupti? Distinctio iusto, debitis repudiandae accusantium itaque doloremque voluptas dicta nisi. Saepe dolor reiciendis at cumque ratione.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam delectus laboriosam odit adipisci mollitia, commodi, dignissimos optio eaque neque incidunt tempore dolor autem dicta nesciunt nisi vero numquam. Eligendi, numquam.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, soluta minus. Eum, est dolores sapiente eos velit, reprehenderit molestiae vitae, exercitationem illum deleniti inventore sit enim iusto quae quod impedit.
+        </div>
+        <div class="modal-footer" style="border: none;">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card modal bootstrap default -->
+
+  <!-- Card modal by guru -->
+  <!-- Modal 
+<div class="modal fade " id="edit_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog dilog" style="margin-top: 5%;">
+      <div class="modal-content content">
+        <div class="modal-header" style="border-bottom:none ;">
+          <h1 class="modal-title title-modal" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal-body" style="padding-left: 25px;">
+            ...
+        </div>
+        <div class="modal-footer" style="border: none;">
+          
+        </div>
+      </div>
+    </div>
+  </div>  -->
+  <!-- Card modal by guru -->
+
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

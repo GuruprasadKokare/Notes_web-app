@@ -172,3 +172,95 @@
 #textarea:focus{
     outline: none;
 }
+
+
+.edit{
+    position: absolute;
+    margin-left: 76%;
+    margin-top: 70%;
+    /* border: 1px solid black; */
+    /* padding: 5px; */
+    border-radius: 50%;
+    font-size: 20px;
+
+}
+
+.delete{
+    position: absolute;
+    margin-left: 86%;
+    margin-top: 70%;
+    /* border: 1px solid black; */
+    /* padding: 2.3%; */
+    /* padding-right: 12px; */
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+
+.card i:hover{
+    color: #972DD9;
+}
+
+.fav{
+    position: absolute;
+    position: absolute;
+    margin-left: 83%;
+    padding: 3px;
+    font-size: 20px;
+}
+
+.card .fav:hover{
+    color: gold;
+}
+
+
+.body-modal{
+    padding-left: 7px;
+    overflow-y: scroll;
+    padding-bottom: 5%;
+    max-height: 500px;
+}
+
+/* Customization of Scrollbar */
+::-webkit-scrollbar{
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 50px;
+    
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #972DD9; 
+    border-radius: 50px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #972DD9; 
+  }
+
+/* Customization of Scrollbar */
+
+
+/* IF gurus code doesn't accepted delete below css */
+
+
+.dilog{
+    
+    /* margin-bottom: auto; */
+    min-width: 55%;
+    max-width: 55%;
+    
+}
+
+.content{
+    min-height: 550px;
+    max-height: 570px;
+}
+
+.title-modal{
+    font-size: 190%;
+    padding-left: 7px;
+}
+/* IF gurus code doesn't accepted delete above css */
