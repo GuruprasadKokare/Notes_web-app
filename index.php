@@ -135,37 +135,7 @@
   </div>
   <!-- Card modal bootstrap default -->
 
-  <!-- Card modal by guru -->
-  <!-- Modal 
-<div class="modal fade " id="edit_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog dilog" style="margin-top: 5%;">
-      <div class="modal-content content">
-        <div class="modal-header" style="border-bottom:none ;">
-          <h1 class="modal-title title-modal" id="staticBackdropLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body modal-body" style="padding-left: 25px;">
-            ...
-        </div>
-        <div class="modal-footer" style="border: none;">
-          
-        </div>
-      </div>
-    </div>
-  </div>  -->
-  <!-- Card modal by guru -->
-
-  <script>
-    let note_data = document.getElementById("card-data").innerHTML;
-    document.getElementById("data-details").innerHTML = note_data;
-
-    let title = document.getElementById("title").innerHTML;
-    document.getElementById("modal-title").innerHTML = title;
-
-    let date = document.getElementById("card-date").innerHTML;
-    document.getElementById("date").innerHTML = date;
-    </script>
-
+ 
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

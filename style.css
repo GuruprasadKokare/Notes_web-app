@@ -247,20 +247,3 @@
 /* Customization of Scrollbar */
 
 
-/* IF gurus code doesn't accepted delete below css */
-
-
-.dilog{
-    
-    /* margin-bottom: auto; */
-    min-width: 55%;
-    max-width: 55%;
-    
-}
-
-.content{
-    min-height: 550px;
-    max-height: 570px;
-}
-
-/* IF gurus code doesn't accepted delete above css */
