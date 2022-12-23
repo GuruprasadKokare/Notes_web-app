@@ -5,7 +5,7 @@ include 'config.php';
 if(isset($_POST['submit'])){
     $title = $_POST['title'];
     $desc = $_POST['description'];
-    $current_date = date("Y-m-d");
+    $current_date = date("d-m-Y");
     $user = $_POST['username'];
 }
 

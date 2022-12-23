@@ -95,7 +95,7 @@
     }
   }
 
-.card h3{
+.ctitle{
     color: #484849;
     font-size: 25px;
     font-weight: bold;
@@ -161,7 +161,7 @@
     outline: none;
 }
 
-#textarea{
+.textarea{
     margin-left: 50px;
     border: 0.2px solid grey;
     padding: 7px;
@@ -169,7 +169,7 @@
     border-radius: 5px;
 }
 
-#textarea:focus{
+.textarea:focus{
     outline: none;
 }
 
@@ -182,22 +182,26 @@
     /* padding: 5px; */
     border-radius: 50%;
     font-size: 20px;
-
+    text-decoration: none;
 }
 
 .delete{
     position: absolute;
     margin-left: 86%;
-    margin-top: 70%;
+    margin-top: 71%;
     /* border: 1px solid black; */
     /* padding: 2.3%; */
     /* padding-right: 12px; */
     border-radius: 50%;
     font-size: 20px;
+    text-decoration: none;
 }
 
+.card a{
+    color: inherit;
+}
 
-.card i:hover{
+.card a:hover{
     color: #972DD9;
 }
 

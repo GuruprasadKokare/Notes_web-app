@@ -84,63 +84,120 @@
         <!-- Add Note Modal-->
 
         <!-- Notes card --
-        <div class="cards">
-            <div class="card" >
-                <h3>Title</h2>
-                <p class="card-data">Lorem ipsum dolor, sit ameit est tempora! Magni nobis, voluptatum assumenda ex error vitae quasi provident voluptate sapiente nihil tempora. Voluptatem, doloribus! Iusto, deserunt ullam? </p>
-                <p class="card-date">28/01/2022</p>
-            </div>
-        </div> -->
-
+            <div class="cards">
+                <div class="card" >
+                    <h3>Title</h2>
+                    <p class="card-data">Lorem ipsum dolor, sit ameit est tempora! Magni nobis, voluptatum assumenda ex error vitae quasi provident voluptate sapiente nihil tempora. Voluptatem, doloribus! Iusto, deserunt ullam? </p>
+                    <p class="card-date">28/01/2022</p>
+                </div>
+            </div> -->
         <!-- Notes card -->
+
         <div class="cards">
             <?php
-                        $user = $row["email"];
-                        $sql_query = "SELECT * FROM notes WHERE user = '$user'";
-                        $result = $conn->query($sql_query);
+                $user = $row["email"];
+                $sql_query = "SELECT * FROM notes WHERE user = '$user'";
+                $result = $conn->query($sql_query);
             ?>
-                <?php
-                    while ($row1 = $result->fetch_array()){ ?>
-                        <div class="card" data-bs-toggle="modal" data-bs-target="#card-modal">
-                            <h3 id="title"><?php echo $row1['title']?></h2>
-                            <i class="fa-regular fa-star fav"></i>
-                            <p class="card-data" id="card-data" ><?php echo $row1['description']?></p>
-                            <p class="card-date"><?php echo $row1['date']?></p>
-                            <i class="fa-solid fa-pen-to-square edit"></i>
-                            <i class="fa-solid fa-trash delete"></i>
-                        </div>
-                <?php
-                    } 
-    
-                ?>
+            <?php
+                while ($row1 = $result->fetch_array()){ ?>
+                    <div class="card">
+                        <p class="ctitle"><?php echo $row1['title']?></p>
+                        <i class="fa-regular fa-star fav"></i>
+                        <p class="card-data"><?php echo $row1['description']?></p>
+                        <p class="card-date"><?php echo $row1['date']?></p>
+
+                        <a class="fa-solid fa-pen-to-square edit editbtn"></a>
+                        <a class="fa-solid fa-trash delete"></a>
+                    </div>
+            <?php
+                } 
+            ?>
         </div> 
         
 
-          <!-- Card modal bootstrap default -->
-  <div class="modal fade" id="card-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header" style="border: none;">
-          <h1 class="modal-title title-modal" id="modal-title"> </h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body body-modal" id="data-details">
+        <!-- Card modal bootstrap default -->
+            <div class="modal fade" id="cardmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header" style="border: none;">
+                    
+                    <h1 class="modal-title title-modal" id="modal-title">  </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body body-modal" id="data-details">
+                        
+                    </div>
+                    <div class="modal-footer" style="border: none;">
+                    <p id="date">  </p>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+        <!-- Card modal bootstrap default -->
 
-        </div>
-        <div class="modal-footer" style="border: none;">
-          <p id="date"></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Card modal bootstrap default -->
+        
+        <!--- Edit Note Modal --->
+        <div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
 
- 
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form method="POST" action="edit.php" autocomplete="off">
+                        <input type="hidden" id="note_id" name="n_id">
+                        <input type="text" name="n_title" class="inp" id="note_title" value=""> <br>
+                        <br>
+                        <textarea class="textarea" id="note_description" name="n_description" rows="8" cols="47"></textarea>
+                        <br>
+                        <br>
+                        <input type="hidden" name="n_date" id="note_date">
+                        <input type="hidden" name="n_user" id="note_user">
+                        <button type="submit" name="update" class="btn btn-primary" style="background: #972DD9; border: none; float: right; margin-right: 10%;">Update Note</button> 
+                    </form>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+        <!--- Edit Note Modal --->
+        
+
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
 
+        <!-- JQuery Link -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <script>
+            
+            //--------- Bootstrap Edit Modal Code -----------//
+            $(document).ready(function(){
+                $('.editbtn').on('click', function() {
+
+                    $('#editmodal').modal('show');
+
+                    $card = $(this).closest('.card');
+                    var data = $card.children("p").map(function(){
+                        return $(this).text();
+                    }).get();
+
+                    console.log(data);
+
+                    $('#note_title').val(data[0]);
+                    $('#note_description').val(data[1]);
+                    $('#note_date').val(data[2]);
+                    $('#note_user').val(data[3]);
+                });
+            });
+
+        </script>
       
 </body>
 
