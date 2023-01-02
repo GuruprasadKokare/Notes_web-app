@@ -15,7 +15,7 @@
     padding: 5px 42px 5px 15px;
     border: 0.2px solid grey;
     border-radius: 5px;
-    margin-left: 15%;
+    margin-left: 14%;
     font-size: 19px;
 }
 
@@ -69,10 +69,10 @@
     
 }
 
-.card:hover{
+/*.card:hover{
     scale: 1.01;
     transition: all ease-in-out 0.2s;
-}
+}*/
   
 .cards {
     max-width: 100%;
@@ -104,7 +104,7 @@
 .card-data{
     font-size: 15px;
     text-align: justify;
-    margin-top: 10px;
+    margin-top: 5px;
     color: #7d7d7d;
     overflow:hidden;
     max-height: 185px;
@@ -117,6 +117,7 @@
     /* font-weight: bold; */
     color: #616161;
     padding: 20px 0px;
+    margin-bottom: 10px;
 }
 
 .raw {
@@ -146,6 +147,32 @@
     padding-bottom: 5px;
 }
 
+/*-------- Display Modal Code ----------*/
+.display_data{
+    padding: 10px;
+}
+
+.display_data h2{
+    color: #484849;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.display_data p{
+    font-size: 15px;
+    text-align: justify;
+    margin-top: 5px;
+    color: #7d7d7d;
+    text-decoration: none;
+}
+
+.display_data h3{
+    font-size: 15px;
+    /* font-weight: bold; */
+    color: #616161;
+    padding: 20px 0px;
+    margin-bottom: 5px;
+}
 
 /*-------- Modal Code --------------*/
 .inp{
@@ -161,7 +188,7 @@
     outline: none;
 }
 
-.textarea{
+#textarea{
     margin-left: 50px;
     border: 0.2px solid grey;
     padding: 7px;
@@ -169,20 +196,39 @@
     border-radius: 5px;
 }
 
-.textarea:focus{
+#textarea:focus{
     outline: none;
 }
 
+.view{
+    position: absolute;
+    margin-left: 62%;
+    margin-top: 71%;
+    font-size: 21px;
+    text-decoration: none;
+}
 
 .edit{
     position: absolute;
-    margin-left: 76%;
-    margin-top: 70%;
+    margin-left: 75%;
+    margin-top: 71%;
     /* border: 1px solid black; */
     /* padding: 5px; */
     border-radius: 50%;
     font-size: 20px;
     text-decoration: none;
+}
+
+.edit-textarea{
+    margin-left: 50px;
+    border: 0.2px solid grey;
+    padding: 7px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.edit-textarea:focus{
+    outline: none;
 }
 
 .delete{
