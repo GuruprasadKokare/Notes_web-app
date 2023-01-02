@@ -52,13 +52,14 @@
                 <button class="search-btn "> <i class="fa-sharp fa-solid fa-magnifying-glass"></i> </button>
             </div>
             <div class="col-4 " style="padding: 5px 10% 1px 18%;">
-                <button type="button" name="add-note" data-bs-toggle="modal" data-bs-target="#exampleModal" class="addnote"> <i class="fa-sharp fa-solid fa-plus"></i> </button>
+                <button type="button" name="add-note" data-bs-toggle="modal" data-bs-target="#insertModal" class="addnote"> <i class="fa-sharp fa-solid fa-plus"></i> </button>
             </div>
         </div>
         <!-- Search bar -->
 
+
         <!-- Add Note Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="insertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
 
@@ -67,14 +68,14 @@
                 </div>
 
                 <div class="modal-body">
-                    <form method="POST" action="insert.php" autocomplete="off">
+                    <form method="POST" action="code.php" autocomplete="off">
                         <input type="hidden" name="username" value="<?php echo $row["email"]; ?>">
                         <input type="text" name="title" placeholder="Add Title" class="inp"> <br>
                         <br>
                         <textarea id="textarea" name="description" rows="8" cols="47" placeholder="Add Description"></textarea>
                         <br>
                         <br>
-                        <button type="submit" name="submit" class="btn btn-primary" style="background: #972DD9; border: none; float: right; margin-right: 10%;">Add Note</button> 
+                        <button type="submit" name="add-note" class="btn btn-primary" style="background: #972DD9; border: none; float: right; margin-right: 10%;">Add Note</button> 
                     </form>
                 </div>
                 
@@ -83,61 +84,71 @@
         </div>
         <!-- Add Note Modal-->
 
-        <!-- Notes card --
+
+        <!-- Notes card -->
             <div class="cards">
-                <div class="card" >
-                    <h3>Title</h2>
-                    <p class="card-data">Lorem ipsum dolor, sit ameit est tempora! Magni nobis, voluptatum assumenda ex error vitae quasi provident voluptate sapiente nihil tempora. Voluptatem, doloribus! Iusto, deserunt ullam? </p>
-                    <p class="card-date">28/01/2022</p>
-                </div>
-            </div> -->
+
+                <?php
+                    $user = $row["email"];
+                    $select_query = "SELECT * FROM notes WHERE user = '$user'";
+                    $result = mysqli_query($conn, $select_query);
+
+                    if(mysqli_num_rows($result) > 0)
+                    {
+                        while ($row1 = mysqli_fetch_array($result))
+                        {
+                            ?>
+                            <div class="card" >
+                                <p hidden class="note_id"><?php echo $row1['id']; ?></p>  <!-- ID of the Note -->
+                                
+                                <p class="ctitle"> <?php echo $row1['title']; ?> </p>
+                                <p class="card-data"> <?php echo $row1['description']; ?></p>
+                                <p class="card-date"> <?php echo $row1['date']; ?> </p>
+                                
+                                <p hidden><?php echo $row1['user']; ?></p>  <!-- Email of the User -->
+
+                                <a class="view" data-bs-toggle="modal" data-bs-target="#displaycardmodal"><i class="fa-solid fa-eye"></i></a>
+                                <a class="edit" ><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="" class="delete"><i class="fa-solid fa-trash"></i></a>
+                            </div>
+                            <?php
+                        }
+                    }
+                    else{
+                        echo "<h5>No Records Found...!</h5>";
+                    }
+                	?>
+            </div>
+
         <!-- Notes card -->
 
-        <div class="cards">
-            <?php
-                $user = $row["email"];
-                $sql_query = "SELECT * FROM notes WHERE user = '$user'";
-                $result = $conn->query($sql_query);
-            ?>
-            <?php
-                while ($row1 = $result->fetch_array()){ ?>
-                    <div class="card">
-                        <p class="ctitle"><?php echo $row1['title']?></p>
-                        <i class="fa-regular fa-star fav"></i>
-                        <p class="card-data"><?php echo $row1['description']?></p>
-                        <p class="card-date"><?php echo $row1['date']?></p>
 
-                        <a class="fa-solid fa-pen-to-square edit editbtn"></a>
-                        <a class="fa-solid fa-trash delete"></a>
-                    </div>
-            <?php
-                } 
-            ?>
-        </div> 
-        
-
-        <!-- Card modal bootstrap default -->
-            <div class="modal fade" id="cardmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header" style="border: none;">
-                    
-                    <h1 class="modal-title title-modal" id="modal-title">  </h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body body-modal" id="data-details">
-                        
-                    </div>
-                    <div class="modal-footer" style="border: none;">
-                    <p id="date">  </p>
-                    </div>
-                    
+        <!-- Card Display Modal -->
+        <div class="modal fade" id="displaycardmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="border: none;">
+                
+                <h1 class="modal-title title-modal" id="modal-title">  </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <div class="modal-body body-modal" id="data-details">
+                    
+                    <div class="display_data">
+                        <!---- Card Data is Displayed ---->
+                    </div>
+                
                 </div>
+                <div class="modal-footer" style="border: none;">
+                <p id="date">  </p>
+                </div>
+                
             </div>
-        <!-- Card modal bootstrap default -->
+            </div>
+        </div>
+        <!-- Card Display Modal -->
 
-        
+
         <!--- Edit Note Modal --->
         <div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -148,16 +159,19 @@
                 </div>
 
                 <div class="modal-body">
-                    <form method="POST" action="edit.php" autocomplete="off">
-                        <input type="hidden" id="note_id" name="n_id">
-                        <input type="text" name="n_title" class="inp" id="note_title" value=""> <br>
+                    <form method="POST" action="code.php" autocomplete="off">
+                        <input type="hidden" id="n_id" name="n_id">
+                        <input type="text" name="n_title" class="inp" id="edit_title" value=""> <br>
+                        
                         <br>
-                        <textarea class="textarea" id="note_description" name="n_description" rows="8" cols="47"></textarea>
+                        <textarea class="edit-textarea" id="edit_description" name="n_description" rows="8" cols="47"></textarea>
                         <br>
                         <br>
-                        <input type="hidden" name="n_date" id="note_date">
-                        <input type="hidden" name="n_user" id="note_user">
-                        <button type="submit" name="update" class="btn btn-primary" style="background: #972DD9; border: none; float: right; margin-right: 10%;">Update Note</button> 
+                        
+                        <input type="hidden" name="n_date" id="edit_date">
+                        <input type="hidden" name="n_user" id="n_user">
+                        
+                        <button type="submit" name="update-note" class="btn btn-primary" style="background: #972DD9; border: none; float: right; margin-right: 10%;">Update Note</button> 
                     </form>
                 </div>
                 
@@ -165,7 +179,33 @@
             </div>
         </div>
         <!--- Edit Note Modal --->
-        
+
+
+        <!--- Delete Note Modal --->
+        <div class="modal fade" id="deletemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="border: none;">
+                
+                <h1 class="modal-title title-modal" id="modal-title">  </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <form action="code.php" method="POST">
+                    <div class="modal-body body-modal" id="data-details">
+                        <input type="hidden" name="note_id" id="delete_note">
+                        <h4>Are Your Sure You Want to Delete the Note ?</h4>
+                    </div>
+                    <div class="modal-footer" style="border: none;">
+                        <button type="submit" name="delete-note" class="btn btn-primary delete-btn">YES..! Delete</button>
+                    </div>
+                </form>
+
+            </div>
+            </div>
+        </div>
+        <!--- Delete Note Modal --->
+
 
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -174,31 +214,70 @@
 
         <!-- JQuery Link -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        
+       
         <script>
             
-            //--------- Bootstrap Edit Modal Code -----------//
-            $(document).ready(function(){
-                $('.editbtn').on('click', function() {
+            $(document).ready(function (){
 
-                    $('#editmodal').modal('show');
+                //-- Display card data in Modal --//
+                $('.view').click(function (e){
+                    e.preventDefault();
 
-                    $card = $(this).closest('.card');
-                    var data = $card.children("p").map(function(){
-                        return $(this).text();
-                    }).get();
-
-                    console.log(data);
-
-                    $('#note_title').val(data[0]);
-                    $('#note_description').val(data[1]);
-                    $('#note_date').val(data[2]);
-                    $('#note_user').val(data[3]);
+                    var note_id = $(this).closest('.card').find('.note_id').text();
+                    //console.log(note_id);
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: "code.php",
+                        data: {
+                            'checking_view': true,
+                            'NOTE_ID': note_id,
+                        },
+                        success: function (response) {
+                            $('.display_data').html(response);
+                            $('#displaycardmodal').modal('show');
+                        }
+                    });
                 });
+
+
+                //-- Edit Note Modal --//
+                $('.edit').click(function (e){
+                    e.preventDefault();
+
+                    var note_id = $(this).closest('.card').find('.note_id').text();
+                    //console.log(note_id);
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: "code.php",
+                        data: {
+                            'checking_edit': true,
+                            'NOTE_ID': note_id,
+                        },
+                        success: function (response) {
+                            $.each(response, function (key, value) {
+                                $('#n_id').val(value['id']);  
+                                $('#edit_title').val(value['title']);   //Here the 'title' is the column name 
+                                $('#edit_description').val(value['description']); 
+                                $('#edit_date').val(value['date']); 
+                                $('#n_user').val(value['user']); 
+                            });
+
+                            $('#editmodal').modal('show');
+                        }
+                    });
+                });
+
+                //-- Delete Card --//
+                $('.delete').click(function (e) { 
+                    e.preventDefault();
+                    var note_id = $(this).closest('.card').find('.note_id').text();
+                    $('#delete_note').val(note_id);
+                    $('#deletemodal').modal('show');
+                });
+
             });
-
         </script>
-      
-</body>
-
+    </body>
 </html>
