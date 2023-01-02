@@ -140,6 +140,8 @@
     .search{
         width: 80%;
     }
+
+    
 }
 
 .search-box{
@@ -150,12 +152,22 @@
 /*-------- Display Modal Code ----------*/
 .display_data{
     padding: 10px;
+    padding-bottom: 0px;
 }
 
 .display_data h2{
     color: #484849;
     font-size: 25px;
     font-weight: bold;
+    margin-top: -26px;
+    margin-bottom: 0px;
+    padding: 20px 0px;
+    text-transform: capitalize;
+
+    /* remove below */
+    position: fixed;
+    background: white;
+    width: 450px;
 }
 
 .display_data p{
@@ -164,15 +176,57 @@
     margin-top: 5px;
     color: #7d7d7d;
     text-decoration: none;
+    word-break: break-all;
+
+    /* remove below */
+    display: inline-flex;
+    margin-top: 43px;
 }
 
 .display_data h3{
     font-size: 15px;
     /* font-weight: bold; */
     color: #616161;
-    padding: 20px 0px;
-    margin-bottom: 5px;
+    padding-top: 17px;
 }
+
+/* if not adjusted remove this css */
+
+.b-s-modal{
+    position: relative;
+    flex: 1 1 auto;
+    padding: var(--bs-modal-padding);
+    padding-top: 6px;
+}
+
+.btn-c{
+    z-index: 3;
+    position: fixed;
+    float: right;
+    margin-left: 420px;
+    margin-top: 10px;
+}
+
+
+
+@media (max-width:575px) {
+    .btn-c{
+        margin-left: 81%;
+    }
+    .display_data h2{
+        width: 86%;
+    }
+
+    /* .user-name{
+        padding: 10px 10px;
+    } */
+    
+    
+}
+
+
+
+/* Remove above css */
 
 /*-------- Modal Code --------------*/
 .inp{

@@ -35,8 +35,8 @@
                 <a href="index.php" class="logo">Notes<p>.</p></a>
             </div>
 
-            <div class="col-9 box-2 " style="font-size: 18px;">
-                Hello,  <p> <?php echo $row["name"]; ?> </p>
+            <div class="col-8 box-2 " style="font-size: 18px;">
+                Hello,  <p class="user-name"> <?php echo $row["name"]; ?> </p>
 
                 <a href="logout.php" class="logout-btn">
                     <i class="fa-solid fa-power-off"></i>
@@ -126,21 +126,17 @@
         <!-- Card Display Modal -->
         <div class="modal fade" id="displaycardmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header" style="border: none;">
-                
-                <h1 class="modal-title title-modal" id="modal-title">  </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body body-modal" id="data-details">
+            <div class="modal-content" style="max-height: 350px;">
+               
+            <div class="modal-body body-modal b-s-modal" id="data-details" >
+                    <button type="button" class="btn-close btn-c" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
                     
                     <div class="display_data">
                         <!---- Card Data is Displayed ---->
                     </div>
                 
                 </div>
-                <div class="modal-footer" style="border: none;">
-                <p id="date">  </p>
+               
                 </div>
                 
             </div>

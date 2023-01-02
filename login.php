@@ -55,7 +55,7 @@
                 
                 <input type="email" class="input-box" name="email" id="email" placeholder="Email" required values=""/>
                 <input type="password" class="input-box" name="password" id="password" placeholder="Password" required values=""/>
-                <i class="bi bi-eye-slash" id="togglePassword">
+                <i class="bi bi-eye-slash" id="togglePassword"></i>
                 <button type="submit" name="submit" class="butn">Log in</button>
 
                 
