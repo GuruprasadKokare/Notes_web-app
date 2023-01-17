@@ -46,8 +46,6 @@
     margin-right: -50px;
     padding-left: auto;
     padding-right: auto;
-    
-
 }
 
 
@@ -207,7 +205,24 @@
     margin-top: 10px;
 }
 
+/*------------ Delete Modal Styling -------------*/
+.delete-text{
+    color: #484849;
+    font-size: 25px;
+    font-weight: bold;
+}
 
+.delete-btn{
+    border: none;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    font-size: 25px;
+    color: #fff;
+    background: #972DD9;
+    padding-left: auto;
+    padding-right: auto;
+}
 
 @media (max-width:575px) {
     .btn-c{
@@ -220,8 +235,7 @@
     /* .user-name{
         padding: 10px 10px;
     } */
-    
-    
+
 }
 
 

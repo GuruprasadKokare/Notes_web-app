@@ -48,7 +48,7 @@
 
         <div class="raw  search-bar">
             <div class="col-8 search-box  ">
-                <input type="text" name="search" placeholder="Search" class="search">
+                <input type="text" name="search" placeholder="Search" class="search" id="searchbar" onkeyup="search_function()">
                 <button class="search-btn "> <i class="fa-sharp fa-solid fa-magnifying-glass"></i> </button>
             </div>
             <div class="col-4 " style="padding: 5px 10% 1px 18%;">
@@ -98,7 +98,7 @@
                         while ($row1 = mysqli_fetch_array($result))
                         {
                             ?>
-                            <div class="card" >
+                            <div class="card">
                                 <p hidden class="note_id"><?php echo $row1['id']; ?></p>  <!-- ID of the Note -->
                                 
                                 <p class="ctitle"> <?php echo $row1['title']; ?> </p>
@@ -190,7 +190,7 @@
                 <form action="code.php" method="POST">
                     <div class="modal-body body-modal" id="data-details">
                         <input type="hidden" name="note_id" id="delete_note">
-                        <h4>Are Your Sure You Want to Delete the Note ?</h4>
+                        <h4 class="delete-text">Are Your Sure You Want to Delete the Note ?</h4>
                     </div>
                     <div class="modal-footer" style="border: none;">
                         <button type="submit" name="delete-note" class="btn btn-primary delete-btn">YES..! Delete</button>
@@ -212,7 +212,26 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
        
         <script>
-            
+
+            //Search Bar Code
+            function search_function(){
+                var input, filter;
+                input = document.getElementById("searchbar");
+                filter = input.value.toUpperCase();
+                cards = document.getElementsByClassName("card")
+                titles = document.getElementsByClassName("card-data");
+
+                // Loop through all list items, and hide those who don't match the search query
+                for (i = 0; i < cards.length; i++) {
+                    a = titles[i];
+                    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        cards[i].style.display = "";
+                    } else {
+                        cards[i].style.display = "none";
+                    }
+                }
+            }
+
             $(document).ready(function (){
 
                 //-- Display card data in Modal --//
