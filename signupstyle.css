@@ -148,7 +148,7 @@ button p {
 }
 
 .txt-below {
-    width: 86%;
+    width: 80%;
     padding-right: 11%;
     height: 50px;
     padding: 1%;
@@ -178,8 +178,8 @@ p a:hover{
         font-size: 35px;
     }
     .txt-below{
-        padding-left: 0%;
-        padding-right: 7%;
+        display: inline-flex;
+        justify-content: center;
     }
     .ext-box{
         height: auto;
@@ -210,22 +210,16 @@ p a:hover{
     }
 
     .txt-below{
-        padding-left: 0;
-        margin-left: 70px;
-        padding-right: 13%;
+        display: inline-flex;
+        justify-content: center;
     }
 
     .form-box{
         text-align: center;
     }
 
-    .wel{
-        margin-left: 35px;
-    }
 
-    .cret_ac{
-        margin-left: 35px;
-    }
+
 }
 
 form i {
